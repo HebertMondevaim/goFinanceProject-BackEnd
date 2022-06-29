@@ -7,6 +7,7 @@ on:
     branches: [ main ]
 
 jobs: 
+
   test: 
     name: Test
     runs-on: ubunto-latest
