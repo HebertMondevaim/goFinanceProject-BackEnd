@@ -10,7 +10,7 @@ jobs:
 
   test: 
     name: Test
-    row-on: ubunto-latest
+    runs-on: ubunto-latest
 
     services: 
       postgres:
