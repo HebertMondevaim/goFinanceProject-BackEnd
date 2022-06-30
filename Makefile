@@ -11,6 +11,6 @@ migrationdrop:
 	migrate -path db/migration -database "postgresql://postgres:postgres@localhost:5432/go_finance?sslmode=disable" -verbose down
 
 test:
-  go test -v -cover ./...
+go test -v -cover ./...
 
 .PHONY: createdb postgres dropdb migrateup migrationdrop test
