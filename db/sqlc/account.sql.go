@@ -181,7 +181,7 @@ type GetAccountsGraphParams struct {
 }
 
 func (q *Queries) GetAccountsGraph(ctx context.Context, arg GetAccountsGraphParams) (int64, error) {
-	row := q.queryRow(ctx, q.getAccountsGraphStmt, getAccountsGraph, arg.UserID, arg.Type)
+	row := q.db.QueryRowContext(ctx, getAccountsGraph, arg.UserID, arg.Type)
 	var count int64
 	err := row.Scan(&count)
 	return count, err
@@ -198,7 +198,7 @@ type GetAccountsReportsParams struct {
 }
 
 func (q *Queries) GetAccountsReports(ctx context.Context, arg GetAccountsReportsParams) (int64, error) {
-	row := q.queryRow(ctx, q.getAccountsReportsStmt, getAccountsReports, arg.UserID, arg.Type)
+	row := q.db.QueryRowContext(ctx, getAccountsReports, arg.UserID, arg.Type)
 	var sum_value int64
 	err := row.Scan(&sum_value)
 	return sum_value, err
